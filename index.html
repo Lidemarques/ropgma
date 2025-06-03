@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="rop.css">
     <link rel="stylesheet" href="javascrip.js" class="js">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
     <title>ROP GMA</title>
 </head>
@@ -282,17 +283,17 @@
                 <p> <i class="fa-solid fa-building-shield"></i> Guarda Municipal de Aracaju |
                     <i class="fa-solid fa-location-dot"></i> Endereço: Av. Ivo do Prado, 904, Bairro São José – – CEP
                     49.100-065. |
-                    <i class="fa-brands fa-whatsapp"></i> Tel.: (79) 8166-7790
+                    <i class="fa-brands fa-whatsapp"></i> Tel.: (79) 98166-7790
                 </p>
             </div>
 
-
-            <div class="imprimir">
-                <button onclick="imprimirSemBotoes()"> Imprimir
+           <div class="imprimir">
+                 <!--<button onclick="imprimirSemBotoes()"> Imprimir
                     <i class="fa-solid fa-print"></i>
-                </button>
+                </button>-->
+             <button onclick="gerarPDF()">Baixar PDF</button>
             </div>
-
+       
 
         </section>
     </div>
