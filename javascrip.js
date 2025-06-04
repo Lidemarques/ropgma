@@ -1,11 +1,3 @@
-
-const users = {
-    "rocha": "307492",
-    "campos": "popgma2025",
-    "ropgma": "ropgma25",
-    "vanisson": "gsi2@25"
-};
-
 function inserir() {
     // Clona a div original
     var div2 = document.querySelector("#tabelaconduz").cloneNode(true);
