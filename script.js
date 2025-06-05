@@ -161,7 +161,6 @@ function adicionarApreensao() {
             <span class="select-print" style="display:none;"></span>
         </td>
         <td><input type="text" size="40"></td>
-        <td><input type="text" size="20"></td>
     `;
 
     tbody.appendChild(tr);
