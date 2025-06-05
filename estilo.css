@@ -7,11 +7,8 @@ body {
     font-size: 10pt;
     background-image: url(images.jpg);
     background-size: cover;
-    /* faz a imagem cobrir todo o fundo */
     background-position: center;
-    /* centraliza a imagem */
     background-repeat: no-repeat;
-    /* evita que a imagem se repita */
 }
 
 .fundopreto {
@@ -30,7 +27,6 @@ body {
     font-size: 14px;
     border: 1px solid black;
     word-spacing: 12px;
-    /* tamanho do espaço entre cada palavra */
 }
 
 .container {
@@ -46,7 +42,6 @@ body {
 
 .tabela3cabeca {
     width: 25%;
-
 }
 
 #dados1 {
@@ -59,12 +54,7 @@ body {
     border-collapse: collapse;
 }
 
-/*.prefeitura tr td{
-    border: 1px solid black;
-}*/
-
 .prefeitura2 {
-    /* Espeço onde tem Prefeitura de Aracaju*/
     text-align: center;
     border-collapse: collapse;
     width: 300px;
@@ -72,7 +62,6 @@ body {
 }
 
 .tdimg {
-    /* Espaço onde vai ficar a imagem */
     width: 75px;
     text-align: center;
 }
@@ -89,6 +78,8 @@ img {
 .tabela3 {
     text-align: center;
     border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 10px;
 }
 
 .nomematricula {
@@ -117,21 +108,16 @@ img {
     margin: 0px;
 }
 
-
 h1 {
     background-color: #11114E;
     color: white;
     letter-spacing: 15px;
-    /* tamanho do espaço entre cada letra */
     word-spacing: 20px;
-    /* tamanho do espaço entre cada palavra */
     text-align: center;
     margin: 0;
     font-size: 20px;
     padding: 10px;
-
 }
-
 
 textarea {
     width: 878px;
@@ -141,21 +127,16 @@ textarea {
     outline: none;
     margin: 0;
     font-size: 12pt;
-
 }
 
 table tr td {
     border: 1px solid black;
     background-color: white;
-
 }
 
 .pai {
-
     width: 330px;
-
 }
-
 
 .end {
     width: 600px;
@@ -167,7 +148,6 @@ table tr td {
 
 #conduzidos {
     border-collapse: collapse;
-
 }
 
 #pai {
@@ -197,7 +177,6 @@ input {
 .tddescricao {
     width: 620px;
 }
-
 
 #descricao1 {
     width: 370px;
@@ -229,25 +208,17 @@ select {
     display: none;
 }
 
-
-
-
-/* Estilização do campo Imagens do Ocorrifo */
 .container {
     background-color: #ffffff;
     border: 1px solid black;
     position: relative;
     padding: 50px 20px;
-
-
 }
 
 input[type="file"] {
     display: none;
     border: 1px solid rgb(185, 0, 0);
-
 }
-
 
 label {
     display: block;
@@ -264,18 +235,15 @@ label {
     border-radius: 2px;
     cursor: pointer;
     border: 1px solid black;
-
 }
 
 .container p {
     text-align: center;
     margin: auto;
     border: none;
-
 }
 
 #images {
-
     width: 100%;
     position: relative;
     margin: auto;
@@ -283,12 +251,10 @@ label {
     justify-content: space-evenly;
     gap: 5px;
     flex-wrap: wrap;
-    /*border: 1px solid black; */
 }
 
 figure {
     width: 40%;
-
 }
 
 img {
@@ -302,46 +268,30 @@ figcaption {
     margin-top: 0.5vmin;
 }
 
-/* Centraliza o botão */
 .button-container {
     display: flex;
     justify-content: center;
     margin-top: 5px;
-    /* Espaço superior */
     margin-bottom: 5px;
-    /* Espaço superior */
-
 }
 
-/* Estilo para o botão */
 .excluir-btn {
     background-color: red;
-    /* Cor de fundo vermelha */
     color: white;
-    /* Cor do texto branca */
     padding: 2px 5px;
-    /* Tamanho do botão */
     border: none;
-    /* Sem borda */
     border-radius: 5px;
-    /* Bordas arredondadas */
     font-size: 10px;
-    /* Tamanho da fonte */
     cursor: pointer;
-    /* Mãozinha ao passar o mouse */
     transition: background-color 0.3s;
-    /* Efeito suave ao passar o mouse */
 }
 
-/* Mudança de cor ao passar o mouse */
 .excluir-btn:hover {
     background-color: darkred;
 }
 
-
 #upload {
     display: none;
-    /* Esconde o input original */
 }
 
 .custom-btn {
@@ -391,4 +341,124 @@ figcaption {
 
 .remove-btn:hover {
     background-color: red;
+}
+
+.tabela3 th, .tabela3 td {
+    border: 1px solid black;
+    padding: 5px;
+    background-color: white;
+    text-align: center;
+    height: 30px;
+    vertical-align: middle;
+}
+
+.tabela3 input {
+    width: 90%;
+    border: 1px solid #ccc !important;
+}
+
+.tabela3 select {
+    width: 90%;
+}
+
+.tabela3 th {
+    background-color: rgb(180, 180, 180) !important;
+    font-weight: bold;
+    padding: 8px;
+}
+
+@media print {
+    .divbotao, .excluir-btn, .custom-btn, .remove-btn, .imprimir {
+        display: none !important;
+    }
+    
+    .tabela3, .tabela3 th, .tabela3 td {
+        border: 1px solid black !important;
+    }
+    
+    .tabela3 input {
+        border: none !important;
+        background: transparent !important;
+    }
+    
+    select, select * {
+        visibility: hidden;
+        border: none !important;
+    }
+    
+    .select-print {
+        display: inline !important;
+        visibility: visible !important;
+    }
+    
+    .button-container {
+        display: none !important;
+    }
+* Campos expansíveis */
+textarea {
+    width: 100%;
+    min-height: 100px;
+    max-height: 1000px;
+    border: 1px solid #ccc;
+    font-size: 12pt;
+    box-sizing: border-box;
+    padding: 2px 4px;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    resize: none;
+    line-height: 1.3;
+    overflow: hidden; /* Isso remove a barra de rolagem */
+}
+
+/* Relato da Ocorrência específico */
+#relato {
+    width: 100%;
+    min-height: 40px;
+    max-height: 800px;
+    border: 1px solid #000;
+    font-size: 10pt;
+    padding: 5px;
+    line-height: 1.4;
+    resize: none;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+/* Tabelas compactas */
+.tabela3 th, .tabela3 td {
+    border: 1px solid black;
+    padding: 2px;
+    background-color: white;
+    text-align: center;
+    height: auto;
+    min-height: 20px;
+    vertical-align: middle;
+    font-size: 9pt;
+}
+
+.tabela3 th {
+    background-color: rgb(180, 180, 180) !important;
+    font-weight: bold;
+}
+
+/* Centralização do botão EXCLUIR */
+.button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.button-container-row td {
+    text-align: center;
+}
+
+/* Imagens sem zoom */
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: white;
 }
