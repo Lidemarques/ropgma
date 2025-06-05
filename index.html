@@ -5,16 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="rop.css">
-    <link rel="stylesheet" href="javascrip.js" class="js">
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="script.js" class="js">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-
     <title>ROP GMA</title>
 </head>
 
 <body>
     <div class="principal">
-
         <h1> GUARDA MUNICIPAL DE ARACAJU </h1>
 
         <section>
@@ -39,18 +37,14 @@
                 </tr>
                 <tr id="destinatario">
                     <td colspan="2"> Destinatário: <input type="text" size="40"> </td>
-
                 </tr>
             </table>
 
-
             <div class="fundocinza" id="dados1">
-
-                <input type="checkbox" name=" item" id=""> Prisão/Apreensão em Flagrante
+                <input type="checkbox" name="item" id=""> Prisão/Apreensão em Flagrante
                 <input type="checkbox" name="" id=""> Comunicação de Ocorrência
                 <input type="checkbox" name="" id=""> Mandado de prisão em aberto
                 <input type="checkbox" name="" id=""> Outros
-
             </div>
 
             <div class="fundopreto">
@@ -58,7 +52,6 @@
             </div>
 
             <table id="tabeladados">
-
                 <tr>
                     <td> Natureza:
                         <select name="">
@@ -74,12 +67,10 @@
                         </select>
                     </td>
                     <td colspan="2" class="tddescricao"> Descrição: <input type="text" size="70"> </td>
-
                 </tr>
                 <tr>
                     <td colspan="2"> Local da Ocorrência: <input type="text" size="50"> </td>
                     <td> UF: <input type="text" id="uf" size="32" value="SE"> </td>
-
                 </tr>
                 <tr>
                     <td rowspan="1"> Cidade: <input type="text" size="25" value="Aracaju"> </td>
@@ -95,7 +86,6 @@
             <div id="tabelaconduz">
                 <div>
                     <div class="fundocinza">
-
                         <i class="fa-solid fa-user-tie"></i> PARTE ENVOLVIDA:
                         <input type="checkbox" name="" id=""> Vítima
                         <input type="checkbox" name="" id=""> Testemunha
@@ -103,7 +93,7 @@
                         <input type="checkbox" name="" id=""> Outros
                     </div>
 
-                    <div> <!-- Inicio da tabela dados partes envolvidas-->
+                    <div>
                         <table id="conduzidos">
                             <tr>
                                 <td class="cpf">Nome: <input type="text" name="" id="nome"></td>
@@ -128,7 +118,6 @@
                             <tr>
                                 <td class="cpf">Naturalidade: <input type="text" name="" id="" size="30"></td>
                                 <td colspan="2" class="end">End: <input type="text" name="" id="end"></td>
-
                             </tr>
                             <tr>
                                 <td class="cpf">CPF: <input type="text" name="" id="" size="30"></td>
@@ -140,28 +129,37 @@
                 </div>
             </div>
 
-            <!-- Abaixo onde vai ser inserido novo campo de envolvido-->
-            <div id="div2">
-
-            </div>
+            <div id="div2"></div>
             <div class="divbotao">
                 <button id="inserir-btn" onclick="inserir()"> Adicionar Parte Envolvida
                     <i class="fa-solid fa-user-tie"></i>
                 </button>
             </div>
 
-
-
             <div class="fundopreto">
                 III - RELATO DA OCORRÊNCIA
             </div>
             <textarea></textarea>
+            
             <div class="fundopreto">
-                IV - APREENSÕES (OBJETOS, ARMAS, VEÍCULOS, SUBSTANCIA ENTORPECENTE, OUTROS...)
+                IV - APREENSÕES (OBJETOS, ARMAS, VEÍCULOS, SUBSTÂNCIA ENTORPECENTE, OUTROS...)
             </div>
-
-            <div>
-                <textarea></textarea>
+            
+            <div class="bloco">
+                <table id="tabela-apreensoes" class="tabela3">
+                    <thead>
+                        <tr class="fundocinza">
+                            <th>Tipo</th>
+                            <th>Especificação</th>
+                            <th>Referência</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            
+                <div class="divbotao">
+                    <button onclick="adicionarApreensao()">Adicionar Apreensão</button>
+                </div>
             </div>
 
             <div id="dadosdaocorrencia" class="fundopreto">
@@ -169,95 +167,34 @@
             </div>
             <div class="container">
                 <input type="file" id="upload" accept="image/*" multiple>
-
-                <!-- Botão personalizado -->
-                <button class="custom-btn" onclick="document.getElementById('upload').click()">Escolher
-                    Arquivos</button>
-
+                <button class="custom-btn" onclick="document.getElementById('upload').click()">Escolher Arquivos</button>
                 <div class="preview-container" id="previewContainer"></div>
             </div>
 
-            <table class="tabela3">
-                <tr class="fundopreto">
-                    <td rowspan="6" class="gmsocorrencia">VI - GMS ENVOLVIDOS NA OCORRÊNCIA</td>
-
-                </tr>
-                <tr>
-                    <td class="fundopreto">GRADUAÇÃO</td>
-                    <td class="nomematricula fundopreto">NOME DE GUERRA</td>
-                    <td class="nomematricula fundopreto">MATRÍCULA</td>
-                </tr>
-                <tr>
-                    <td>
-                        <select name="">
-                            <option value=""></option>
-                            <option value="">GM-1</option>
-                            <option value="">GM-2</option>
-                            <option value="">GM-3</option>
-                            <option value="">SUPERVISOR</option>
-                            <option value="">SUB-INSPETOR</option>
-                            <option value="">INSPETOR</option>
-                        </select>
-                    </td>
-                    <td class="celula"><input type="text" name="" id=""></td>
-                    <td class="celula"><input type="text" name="" id=""></td>
-                </tr>
-                <tr class="tabela3cabeca">
-                    <td class="celula">
-                        <select name="">
-                            <option value=""></option>
-                            <option value="">GM-1</option>
-                            <option value="">GM-2</option>
-                            <option value="">GM-3</option>
-                            <option value="">SUPERVISOR</option>
-                            <option value="">SUB-INSPETOR</option>
-                            <option value="">INSPETOR</option>
-                        </select>
-                    </td>
-                    <td class="celula"><input type="text" name="" id=""></td>
-                    <td class="celula"><input type="text" name="" id=""></td>
-                </tr>
-                <tr>
-                    <td class="celula">
-                        <select name="">
-                            <option value=""></option>
-                            <option value="">GM-1</option>
-                            <option value="">GM-2</option>
-                            <option value="">GM-3</option>
-                            <option value="">SUPERVISOR</option>
-                            <option value="">SUB-INSPETOR</option>
-                            <option value="">INSPETOR</option>
-                        </select>
-                    </td>
-                    <td class="celula"><input type="text" name="" id=""></td>
-                    <td class="celula"><input type="text" name="" id=""></td>
-                </tr>
-                <tr>
-
-                    <td class="celula">
-                        <select name="">
-                            <option value=""></option>
-                            <option value="">GM-1</option>
-                            <option value="">GM-2</option>
-                            <option value="">GM-3</option>
-                            <option value="">SUPERVISOR</option>
-                            <option value="">SUB-INSPETOR</option>
-                            <option value="">INSPETOR</option>
-                        </select>
-                    </td>
-                    <td class="celula"><input type="text" name="" id=""></td>
-                    <td class="celula"><input type="text" name="" id=""></td>
-                </tr>
-
-            </table>
-
-
-            <div class="assinaturaequipe">
-                __________________________________________________________ <br> <strong>Assinatura do responsável pela
-                    equipe </strong>
+            <div class="fundopreto">
+                VI - GMS ENVOLVIDOS NA OCORRÊNCIA
+            </div>
+            
+            <div class="bloco">
+                <table id="tabela-gms" class="tabela3">
+                    <thead>
+                        <tr class="fundocinza">
+                            <th>Nível</th>
+                            <th>Nome de Guerra</th>
+                            <th>Matrícula</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            
+                <div class="divbotao">
+                    <button onclick="adicionarAgente()">Adicionar Agente</button>
+                </div>
             </div>
 
-
+            <div class="assinaturaequipe">
+                __________________________________________________________ <br> <strong>Assinatura do responsável pela equipe </strong>
+            </div>
 
             <div class="postodeservico">
                 <strong> POSTO DE SERVIÇO:</strong> <input type="text" name="" id="" size="45">
@@ -268,7 +205,6 @@
                 VII - RECIBO DA AUTORIDADE A QUE SE DESTINA OU SEU REPRESENTANTE LEGAL
             </div>
             <div class="descricao container">
-
                 Recebi este <strong>ROP</strong> com as devidas qualificações das pessoas envolvidas, com as condições
                 físicas descritas acima e portando os objetos especificados no campo IV que foram apreendidos e
                 apresentados
@@ -292,13 +228,9 @@
                     <i class="fa-solid fa-print"></i>
                 </button>
             </div>
-       
-
         </section>
     </div>
-    </div>
     <script src="https://kit.fontawesome.com/18d18cbb9b.js" crossorigin="anonymous"></script>
-    <script src="javascrip.js"></script>
+    <script src="script.js"></script>
 </body>
-
 </html>
