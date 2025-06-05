@@ -221,9 +221,14 @@ function adicionarAgente() {
 document.addEventListener('input', function (e) {
     if (e.target.tagName.toLowerCase() === 'textarea') {
         e.target.style.height = 'auto';
-        e.target.style.height = (e.target.scrollHeight) + 'px';
+
+        const lineHeight = 8; // altura de uma linha (ajuste conforme seu CSS)
+        const lines = Math.ceil(e.target.scrollHeight / lineHeight);
+
+        const newHeight = lines * 9;
+        e.target.style.height = newHeight + 'px';
     }
-});
+});   
 
 function excluirLinha(btn) {
     const row = btn.closest('tr');
