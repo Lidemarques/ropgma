@@ -19,7 +19,7 @@
             <table class="prefeitura">
                 <tr>
                     <td rowspan="3" class="tdimg">
-                        <img src="download.jpg" alt="">
+                        <img src="logo.jpg" alt="">
                     </td>
                     <td class="prefeitura2" rowspan="3">
                         <strong>REGISTRO DE OCORRÊNCIA POLICIAL <br>
@@ -87,10 +87,10 @@
                 <div>
                     <div class="fundocinza">
                         <i class="fa-solid fa-user-tie"></i> PARTE ENVOLVIDA:
-                        <input type="checkbox" name="" id=""> Vítima
-                        <input type="checkbox" name="" id=""> Testemunha
-                        <input type="checkbox" name="" id=""> Autor
-                        <input type="checkbox" name="" id=""> Outros
+                       <input type="checkbox" class="parte-envolvida"> Autor
+ 			 <input type="checkbox" class="parte-envolvida"> Vítima
+  			<input type="checkbox" class="parte-envolvida"> Testemunha
+  			<input type="checkbox" class="parte-envolvida"> Outros
                     </div>
 
                     <div>
@@ -139,14 +139,14 @@
             <div class="fundopreto">
                 III - RELATO DA OCORRÊNCIA
             </div>
-            <textarea></textarea>
+            <textarea id="relato" oninput="autoExpand(this)"></textarea>
             
             <div class="fundopreto">
                 IV - APREENSÕES (OBJETOS, ARMAS, VEÍCULOS, SUBSTÂNCIA ENTORPECENTE, OUTROS...)
             </div>
             
             <div class="bloco">
-                <table id="tabela-apreensoes" class="tabela3">
+                <table id="tabela-apreensoes" class="tabela3" style="display: none;">
                     <thead>
                         <tr class="fundocinza">
                             <th>Tipo</th>
@@ -189,16 +189,20 @@
                 <div class="divbotao">
                     <button onclick="adicionarAgente()">Adicionar Agente</button>
                 </div>
+
+
+ <div class="postodeservico">
+                <strong> POSTO DE SERVIÇO:</strong> <input type="text" name="" id="" size="45">
+                <STROng>TURNO:</STROng><input type="text" name="24h" id="" value="24h">
+            </div>
+
             </div>
 
             <div class="assinaturaequipe">
                 __________________________________________________________ <br> <strong>Assinatura do responsável pela equipe </strong>
             </div>
 
-            <div class="postodeservico">
-                <strong> POSTO DE SERVIÇO:</strong> <input type="text" name="" id="" size="45">
-                <STROng>TURNO:</STROng><input type="text" name="24h" id="" value="24h">
-            </div>
+           
 
             <div class="fundopreto">
                 VII - RECIBO DA AUTORIDADE A QUE SE DESTINA OU SEU REPRESENTANTE LEGAL
