@@ -313,9 +313,10 @@ figcaption {
     gap: 20px;
 }
 
+/* Imagens sem zoom */
 .image-box {
-    width: 500px;
-    height: 500px;
+    width: 350px;
+    height: 350px;
     border: 2px dashed #aaa;
     background-color: #fff;
     position: relative;
