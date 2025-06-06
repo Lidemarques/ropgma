@@ -98,16 +98,11 @@
   const senha = document.getElementById("senha").value.trim();
   const senhaHash = await sha256(senha);
 
-  if (usuario == "gma" && senhaHash == ss) {
-    document.body.innerHTML = `
-      <div style="text-align: center; color: white;">
-        <h1>Bem-vindo à GMA!</h1>
-        <p>Login realizado com sucesso.</p>
-      </div>`;
-  } else {
-    document.getElementById("mensagem").innerText = "Usuário ou senha inválidos.";
-  }
-console.log(senhaHash);
+if (usuario == "gma" && senhaHash == ss) {
+  window.location.href = "https://lidemarques.github.io/ropgma/rop";
+} else {
+  document.getElementById("mensagem").innerText = "Usuário ou senha inválidos.";
+}
 }
   </script>
 
