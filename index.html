@@ -99,11 +99,16 @@
   const senhaHash = await sha256(senha);
 
 if (usuario == "gma" && senhaHash == ss) {
-  window.location.href = "https://lidemarques.github.io/ropgma/rop";
+  localStorage.setItem("autorizado", "true"); // Marca o acesso
+  window.location.href = "rop.html";
 } else {
   document.getElementById("mensagem").innerText = "Usuário ou senha inválidos.";
 }
 }
+
+
+
+
   </script>
 
 </body>

@@ -1,3 +1,14 @@
+window.addEventListener('DOMContentLoaded', () => {
+    const autorizado = localStorage.getItem("autorizado");
+    if (autorizado !== "true") {
+      document.body.innerHTML = "<h1 style='color: red; text-align: center; margin-top: 50px;'>Usuário não autorizado</h1>";
+    } else {
+      // Limpa o localStorage se quiser bloquear recarregamentos subsequentes
+      localStorage.removeItem("autorizado");
+    }
+  });
+
+
 function inserir() {
     var div2 = document.querySelector("#tabelaconduz").cloneNode(true);
     document.querySelector("#tabelaconduz").after(div2);
