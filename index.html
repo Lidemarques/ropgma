@@ -105,8 +105,6 @@ if (usuarioHash == uu && senhaHash == ss) {
   window.location.href = "rop.html";
 } else {
   document.getElementById("mensagem").innerText = "Usuário ou senha inválidos.";
-console.log(usuarioHash);
-console.log(senhaHash);
   localStorage.removeItem("autorizado");
 
 }
