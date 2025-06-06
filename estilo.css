@@ -102,7 +102,7 @@ img {
     background-color: white;
     width: 938px;
     text-align: center;
-    padding-top: 30px;
+    padding-top: 60px;
     padding-bottom: 20px;
     border: 1px solid black;
     margin: 0px;
@@ -127,6 +127,7 @@ textarea {
     outline: none;
     margin: 0;
     font-size: 12pt;
+    text-align: justify;
 }
 
 table tr td {
@@ -421,6 +422,7 @@ textarea {
     line-height: 1.4;
     resize: none;
     box-sizing: border-box;
+    overflow: hidden;
     overflow-wrap: break-word;
     word-break: break-word;
 }
