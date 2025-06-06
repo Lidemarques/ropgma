@@ -13,6 +13,9 @@ function inserir() {
     buttonContainer.appendChild(excluirBtn);
 
     div2.appendChild(buttonContainer);
+
+    // 🚀 Reaplica comportamento de exclusividade
+    ativarExclusividadeParte();
 }
 
 function ocultarDiv(div) {
@@ -144,7 +147,10 @@ function updateSelectPrint(select) {
 }
 
 function adicionarApreensao() {
-    const tbody = document.querySelector('#tabela-apreensoes tbody');
+    const tabela = document.getElementById('tabela-apreensoes');
+    tabela.style.display = 'table'; // Mostra a tabela
+
+    const tbody = tabela.querySelector('tbody');
 
     const tr = document.createElement('tr');
 
@@ -171,6 +177,11 @@ function adicionarApreensao() {
     btnExcluir.onclick = () => {
         tr.remove();
         btnExcluir.remove();
+
+        // Se não houver mais linhas, esconde a tabela
+        if (tbody.querySelectorAll('tr').length === 0) {
+            tabela.style.display = 'none';
+        }
     };
 
     const divBtn = document.createElement('div');
@@ -218,18 +229,10 @@ function adicionarAgente() {
 
     tr.parentNode.insertBefore(divBtn, tr.nextSibling);
 }
-document.addEventListener('input', function (e) {
-    if (e.target.tagName.toLowerCase() === 'textarea') {
-        e.target.style.height = 'auto';
-
-        const lineHeight = 8; // altura de uma linha (ajuste conforme seu CSS)
-        const lines = Math.ceil(e.target.scrollHeight / lineHeight);
-
-        const newHeight = lines * 9;
-        e.target.style.height = newHeight + 'px';
-    }
-});   
-
+function autoExpand(textarea) {
+    textarea.style.height = 'auto'; // reset
+    textarea.style.height = textarea.scrollHeight/1.19 + 'px';
+}
 function excluirLinha(btn) {
     const row = btn.closest('tr');
     const buttonRow = row.nextElementSibling;
@@ -238,3 +241,35 @@ function excluirLinha(btn) {
         buttonRow.remove();
     }
 }
+
+// Garante que só um checkbox por grupo seja marcado
+document.querySelectorAll('.parte-envolvida').forEach(cb => {
+    cb.addEventListener('change', function () {
+        if (this.checked) {
+            // Encontra o grupo onde esse checkbox está
+            const grupo = this.closest('.fundocinza');
+
+            // Desmarca os outros só dentro desse grupo
+            grupo.querySelectorAll('.parte-envolvida').forEach(outro => {
+                if (outro !== this) outro.checked = false;
+            });
+        }
+    });
+});
+
+function ativarExclusividadeParte() {
+    document.querySelectorAll('.parte-envolvida').forEach(cb => {
+        cb.addEventListener('change', function () {
+            if (this.checked) {
+                const grupo = this.closest('.fundocinza');
+                grupo.querySelectorAll('.parte-envolvida').forEach(outro => {
+                    if (outro !== this) outro.checked = false;
+                });
+            }
+        });
+    });
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    ativarExclusividadeParte();
+});
