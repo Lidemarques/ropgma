@@ -81,8 +81,7 @@
   </div>
 
   <script>
-	const ss = "1b0adeeab2c440835829559952d5472136ce3626e75a516caefcee718a5868da";
-        
+	
 
     async function sha256(texto) {
       const encoder = new TextEncoder();
@@ -97,13 +96,19 @@
   const usuario = document.getElementById("usuario").value.trim();
   const senha = document.getElementById("senha").value.trim();
   const senhaHash = await sha256(senha);
+  const usuarioHash = await sha256(usuario);
+  const ss = "1b0adeeab2c440835829559952d5472136ce3626e75a516caefcee718a5868da";
+  const uu = "3638a16ee0ebb8e51637ca2bdddbdc343f9812ff6fbe19d207047496cbe3ea5e";
 
-if (usuario == "gma" && senhaHash == ss) {
+if (usuarioHash == uu && senhaHash == ss) {
   localStorage.setItem("autorizado", "true"); // Marca o acesso
   window.location.href = "rop.html";
 } else {
   document.getElementById("mensagem").innerText = "Usuário ou senha inválidos.";
-	localStorage.removeItem("autorizado");
+console.log(usuarioHash);
+console.log(senhaHash);
+  localStorage.removeItem("autorizado");
+
 }
 }
 
