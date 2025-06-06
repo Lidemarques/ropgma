@@ -103,6 +103,7 @@ if (usuario == "gma" && senhaHash == ss) {
   window.location.href = "rop.html";
 } else {
   document.getElementById("mensagem").innerText = "Usuário ou senha inválidos.";
+	localStorage.removeItem("autorizado");
 }
 }
 
