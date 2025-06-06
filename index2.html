@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login GMA</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #2c3e50, #3498db);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .login-container img {
+      max-width: 120px;
+      margin-bottom: 20px;
+    }
+
+    .login-container h2 {
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+
+    .login-container input[type="text"],
+.login-container input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box; /* <- ADICIONE ESTA LINHA */
+}
+    .login-container input[type="submit"] {
+  background-color: #3498db;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%; /* agora 100% funciona corretamente */
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+    .login-container input[type="submit"]:hover {
+      background-color: #2980b9;
+    }
+
+    #mensagem {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <img src="logo.jpg">
+    <h2>ROP GMA</h2>
+
+    <form onsubmit="return validarLogin(event)">
+      <input type="text" id="usuario" placeholder="Usuário" required>
+     <input type="password" id="senha" placeholder="Senha" required maxlength="6">
+      <input type="submit" value="Entrar">
+      <p id="mensagem"></p>
+    </form>
+  </div>
+
+  <script>
+	const ss = "1b0adeeab2c440835829559952d5472136ce3626e75a516caefcee718a5868da";
+        
+
+    async function sha256(texto) {
+      const encoder = new TextEncoder();
+      const data = encoder.encode(texto);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    async function validarLogin(event) {
+  event.preventDefault();
+  const usuario = document.getElementById("usuario").value.trim();
+  const senha = document.getElementById("senha").value.trim();
+  const senhaHash = await sha256(senha);
+
+  if (usuario == "gma" && senhaHash == ss) {
+    document.body.innerHTML = `
+      <div style="text-align: center; color: white;">
+        <h1>Bem-vindo à GMA!</h1>
+        <p>Login realizado com sucesso.</p>
+      </div>`;
+  } else {
+    document.getElementById("mensagem").innerText = "Usuário ou senha inválidos.";
+  }
+console.log(senhaHash);
+}
+  </script>
+
+</body>
+</html>
