@@ -10,10 +10,15 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 function inserir() {
-    var div2 = document.querySelector("#tabelaconduz").cloneNode(true);
-    document.querySelector("#tabelaconduz").after(div2);
+    var original = document.querySelector("#tabelaconduz");
+    var div2 = original.cloneNode(true);
     div2.style.display = "block";
 
+    // Remove o botão antigo, se houver
+    var oldButton = div2.querySelector(".button-container");
+    if (oldButton) oldButton.remove();
+
+    // Cria botão de exclusão
     var excluirBtn = document.createElement("button");
     excluirBtn.innerHTML = "EXCLUIR";
     excluirBtn.classList.add("excluir-btn");
@@ -22,10 +27,17 @@ function inserir() {
     var buttonContainer = document.createElement("div");
     buttonContainer.classList.add("button-container");
     buttonContainer.appendChild(excluirBtn);
-
     div2.appendChild(buttonContainer);
 
-    // 🚀 Reaplica comportamento de exclusividade
+    // Encontra o último .tabelaconduz visível (inclusive os clones)
+    var todasDivs = document.querySelectorAll("#tabelaconduz, .tabelaconduz-clone");
+    var ultima = todasDivs[todasDivs.length - 1];
+    ultima.after(div2);
+
+    // Marca como clone para futuras inserções
+    div2.classList.add("tabelaconduz-clone");
+
+    // Reaplica comportamento de exclusividade
     ativarExclusividadeParte();
 }
 
