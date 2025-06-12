@@ -58,7 +58,7 @@ body {
     text-align: center;
     border-collapse: collapse;
     width: 300px;
-    font-size: 10px;
+    font-size: 12px;
 }
 
 .tdimg {
@@ -259,8 +259,8 @@ figure {
 }
 
 img {
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 80%;
 }
 
 figcaption {
